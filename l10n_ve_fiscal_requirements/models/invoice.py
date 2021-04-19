@@ -47,7 +47,7 @@ class AccountInvoice(models.Model):
         else:
             raise UserError(('Debe indicar una Cedula o Rif para el Cliente antes de imprimir el Reporte.'))
 
-    @api.depends('type', 'state')
+    @api.depends('move_type', 'state')
     def _compute_transaction_type(self):
         for move in self:
             if move.move_type in ('out_refund','in_refund') and move.state != 'cancel':
