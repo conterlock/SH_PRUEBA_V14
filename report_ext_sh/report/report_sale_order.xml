@@ -17,7 +17,7 @@
                                         <t t-if="doc.company_id.vat">
                                             <span style="font-size: 13px; font-family: sans-serif">RUC:<t t-esc="doc.company_id.vat"/></span><br/>
                                         </t>
-                                        <span style="font-size: 13px; font-family: sans-serif">Dirección: <t t-esc="doc.company_id.display_address_ext()"/></span>
+                                        <!-- <span style="font-size: 13px; font-family: sans-serif">Dirección: <t t-esc="doc.company_id.display_address_ext()"/></span> -->
                                     </td>
                                     <td>
                                         <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
