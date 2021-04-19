@@ -9,13 +9,14 @@
                             <table class="table table-borderless">
                                 <tr>
                                     <td>
-                                        <img class="mr4 float-right o_portal_contact_img" t-if="doc.company_id.logo" t-att-src="image_data_uri(doc.company_id.logo)" style="max-height: 120px; max-width: 180px;" alt="Logo"/>
+                                        <img class="mr4 float-left o_portal_contact_img" t-if="doc.company_id.logo" t-att-src="image_data_uri(doc.company_id.logo)" style="max-height: 120px; max-width: 180px;" alt="Logo"/>
                                     </td>
                                     <td>
                                         <strong><t t-esc="doc.company_id.name"/></strong><br/>
-                                        <t t-esc="doc.company_id.street"/><br/>
+                                        <t t-esc="doc.company_id.street"/>
                                         <t t-if="doc.company_id.street2">
-                                            <t t-esc="doc.company_id.street2"/><br/>
+                                            <br/>
+                                            <t t-esc="doc.company_id.street2"/>
                                         </t>
                                         ,<t t-esc="doc.company_id.city"/> Estado <t t-esc="doc.company_id.state_id.name"/><br/>
                                         <t t-esc="doc.company_id.phone"/><br/>
@@ -62,33 +63,33 @@
                                 <thead>
                                     <tr>
                                         <th class="text-left">Código</th>
-                                        <th class="text-right">Descripción</th>
-                                        <th class="text-right">Marca</th>
-                                        <th class="text-right">Cant.</th>
-                                        <th class="text-right">Precio Unitario</th>
-                                        <th class="text-right">Subtotal</th>
+                                        <th class="text-left">Descripción</th>
+                                        <th class="text-left">Marca</th>
+                                        <th class="text-left">Cant.</th>
+                                        <th class="text-left">Precio Unitario</th>
+                                        <th class="text-left">Subtotal</th>
                                     </tr>
                                 </thead>
                                 <tbody class="sale_tbody">
                                     <t t-foreach="doc.order_line" t-as="line">
                                         <tr>
                                             <td>
-                                                Código
+                                                <t t-esc="line.product_id.default_code"/>
                                             </td>
                                             <td>
-                                                Descripción
+                                                <t t-esc="line.name"/>
                                             </td>
                                             <td>
                                                 Marca
                                             </td>
                                             <td>
-                                                Cantidad
+                                                <t t-esc="line.product_uom_qty"/>
                                             </td>
                                             <td>
-                                                Precio
+                                                <t t-esc="line.price_unit"/>
                                             </td>
                                             <td>
-                                                Subtotal
+                                                <t t-esc="line.price_subtotal"/>
                                             </td>
                                         </tr>
                                     </t>
