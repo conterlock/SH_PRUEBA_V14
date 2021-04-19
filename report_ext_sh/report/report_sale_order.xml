@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_saleorder" inherit_id="sale.report_saleorder">
+            <xpath expr="." position="replace">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.basic_layout">
+                        <div class="header">
+                            <table class="table table-borderless">
+                                <tr>
+                                    <td>
+                                        <img class="mr4 float-right o_portal_contact_img" t-if="doc.company_id.logo" t-att-src="image_data_uri(doc.company_id.logo)" style="max-height: 120px; max-width: 180px;" alt="Logo"/>
+                                    </td>
+                                    <td>
+                                        <br/>
+                                        <span style="font-size: 13px; font-family: sans-serif">Razón Social: <strong><t t-esc="doc.company_id.name"/></strong></span><br/>
+                                        <t t-if="doc.company_id.vat">
+                                            <span style="font-size: 13px; font-family: sans-serif">RUC:<t t-esc="doc.company_id.vat"/></span><br/>
+                                        </t>
+                                        <span style="font-size: 13px; font-family: sans-serif">Dirección: <t t-esc="doc.company_id.display_address_ext()"/></span>
+                                    </td>
+                                    <td>
+                                        <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
+                                            <span t-if="doc.state not in ['draft','sent']">Pedido # </span>
+                                            <span t-if="doc.state in ['draft','sent']">Cotización # </span>
+                                        </t>
+                                        <t t-if="env.context.get('proforma', False) or is_pro_forma">
+                                            <span>Pro-Forma Factura # </span>
+                                        </t>
+                                        <br/>
+                                        <span t-field="doc.name"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </xpath>
+        </template>
+    </data>
+</odoo>
