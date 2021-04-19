@@ -14,11 +14,11 @@
     ],
     'data': [
         # ~ 'security/ir.model.access.csv',
-        'views/partner_view.xml',
-        'views/company_view.xml',
+        # 'views/partner_view.xml',
+        # 'views/company_view.xml',
         # 'views/account_invoice_view.xml',
         # 'views/account_tax_view.xml',
-        # 'reports/invoice_change.xml'
+        'reports/invoice_change.xml'
         # ~ 'reports/fiscal_invoice.xml',
         # ~ 'reports/internal_layout_laws.xml',
     ],
