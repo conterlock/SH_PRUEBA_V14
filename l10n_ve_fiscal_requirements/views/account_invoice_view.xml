@@ -13,7 +13,7 @@
                 </xpath>
                 <xpath expr="//field[@name='fiscal_position_id']" position="before">
                     <field name="transaction_type" attrs="{'required':[('move_type','!=','out_invoice')]}"/>
-                    <field name="ajust_date" attrs="{'required':[('transaction_type', '=', '04-ajuste')],'invisible':[('transaction_type', '!=', '04-ajuste'),('type','=','out_invoice')]}"/>
+                    <field name="ajust_date" attrs="{'required':[('transaction_type', '=', '04-ajuste')],'invisible':[('transaction_type', '!=', '04-ajuste'),('move_type','=','out_invoice')]}"/>
                 </xpath>
                 </field>
         </record>
