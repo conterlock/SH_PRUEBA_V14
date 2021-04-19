@@ -1,0 +1,76 @@
+<odoo>
+    <data>
+        <template id="address_layout">
+            <t t-set="colclass" t-value="('col-md-5' if report_type == 'html' else 'col-5') + ' ml-auto'"/>
+            <t t-if="address">
+                <div class="address row">
+                    <t t-if="information_block">
+                        <t t-set="colclass" t-value="'col-5 offset-1'"/>
+                        <div name="information_block" class="col-6">
+                            <t t-raw="information_block"/>
+                        </div>
+                    </t>
+                    <div name="address" t-att-class="colclass">
+                        <t t-set="dni" t-value="o._get_dni()" />
+                        <t t-if="o.partner_id.company_type == 'person'">
+                            <span><strong>Nombre: </strong><t t-esc="o.partner_id.name"/></span><br/>
+                            <span><strong>Dirección: </strong><t t-esc="o.partner_id.contact_address"/></span><br/>
+                            <span><strong>C.I: </strong><t t-esc="o.partner_id.cedula"/></span><br/>
+                            <span t-if="o.partner_id.mobile"><strong>Telefono: </strong><t t-esc="o.partner_id.mobile"/></span>
+                        </t>
+                        <t t-else="">
+                            <span><strong>Razón Social: </strong><t t-esc="o.partner_id.name"/></span><br/>
+                            <span><strong>Dirección: </strong><t t-esc="o.partner_id.contact_address"/></span><br/>
+                            <span><strong>RIF: </strong><t t-esc="o.partner_id.rif"/></span><br/>
+                            <span t-if="o.partner_id.mobile"><strong>Telefono: </strong><t t-esc="o.partner_id.mobile"/></span>
+                        </t>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="external_layout_background_sh">
+            <t t-if="o.invoice_report_header">
+                <div t-attf-class="o_company_#{company.id}_layout header" t-att-style="report_header_style">
+                    <div class="o_background_header">
+                    <div class="float-right">
+                        <h3 class="mt0 text-right" t-field="company.report_header"/>
+                    </div>
+                    <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" class="float-left" alt="Logo"/>
+                    <div class="float-left company_address">
+                        <div>
+                            <strong t-field="company.partner_id.name"/>
+                        </div>
+                        <span t-field="company.partner_id"
+                            t-options='{"widget": "contact", "fields": ["address"], "no_marker": true}'/>
+                    </div>
+                    <div class="clearfix mb8"/>
+                    </div>
+                </div>
+            </t>
+
+            <div t-attf-class="o_company_#{company.id}_layout article o_report_layout_background" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+                <t t-call="l10n_ve_fiscal_requirements.address_layout"/>
+                <t t-raw="0"/>
+            </div>
+
+            <div t-attf-class="o_company_#{company.id}_layout footer o_background_footer">
+                <div class="text-center">
+                    <ul class="list-inline">
+                        <li t-if="company.phone" class="list-inline-item"><i class="fa fa-phone" role="img" aria-label="Phone" title="Phone"/> <span t-field="company.phone"/></li>
+                        <li t-if="company.email" class="list-inline-item"><i class="fa fa-at" role="img" aria-label="Email" title="Email"/> <span t-field="company.email"/></li>
+                        <li t-if="company.website" class="list-inline-item"><i class="fa fa-globe" role="img" aria-label="Website" title="Website"/> <span t-field="company.website"/></li>
+                        <li t-if="company.vat" class="list-inline-item"><i class="fa fa-building-o" role="img" aria-label="Fiscal number"/><t t-esc="company.country_id.vat_label or 'Tax ID'"/>: <span t-field="company.vat"/></li>
+                    </ul>
+                    <div t-field="company.report_footer"/>
+                    <div t-if="report_type == 'pdf'" class="text-muted">
+                        Page:
+                        <span class="page"/>
+                        of
+                        <span class="topage"/>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </data>
+</odoo>
