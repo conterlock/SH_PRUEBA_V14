@@ -12,23 +12,23 @@
                                         <img class="mr4 float-right o_portal_contact_img" t-if="doc.company_id.logo" t-att-src="image_data_uri(doc.company_id.logo)" style="max-height: 120px; max-width: 180px;" alt="Logo"/>
                                     </td>
                                     <td>
-                                        <br/>
-                                        <span style="font-size: 13px; font-family: sans-serif">Razón Social: <strong><t t-esc="doc.company_id.name"/></strong></span><br/>
-                                        <t t-if="doc.company_id.vat">
-                                            <span style="font-size: 13px; font-family: sans-serif">RUC:<t t-esc="doc.company_id.vat"/></span><br/>
-                                        </t>
+                                        <strong><t t-esc="doc.company_id.name"/></strong><br/>
+                                        <t t-esc="doc.company_id.street"/><br/>
+                                        <t t-esc="doc.company_id.street2"/><br/>
+                                        <t t-esc="doc.company_id.phone"/><br/>
+                                        <t t-esc="doc.company_id.email"/><br/>
                                         <!-- <span style="font-size: 13px; font-family: sans-serif">Dirección: <t t-esc="doc.company_id.display_address_ext()"/></span> -->
                                     </td>
                                     <td>
                                         <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
-                                            <span t-if="doc.state not in ['draft','sent']">Pedido # </span>
-                                            <span t-if="doc.state in ['draft','sent']">Cotización # </span>
+                                            <strong><span style="color: black;" t-if="doc.state not in ['draft','sent']">Pedido # </span></strong>
+                                            <strong><span style="color: black;" t-if="doc.state in ['draft','sent']">Cotización # </span></strong>
                                         </t>
                                         <t t-if="env.context.get('proforma', False) or is_pro_forma">
-                                            <span>Pro-Forma Factura # </span>
+                                            <strong><span style="color: black;" >Pro-Forma Factura # </span></strong>
                                         </t>
                                         <br/>
-                                        <span t-field="doc.name"/>
+                                        <strong><span style="color: red;" t-field="doc.name"/></strong>
                                     </td>
                                 </tr>
                             </table>
