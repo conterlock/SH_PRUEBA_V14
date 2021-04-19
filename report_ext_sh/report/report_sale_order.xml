@@ -20,7 +20,6 @@
                                         ,<t t-esc="doc.company_id.city"/> Estado <t t-esc="doc.company_id.state_id.name"/><br/>
                                         <t t-esc="doc.company_id.phone"/><br/>
                                         <t t-esc="doc.company_id.email"/><br/>
-                                        <!-- <span style="font-size: 13px; font-family: sans-serif">Dirección: <t t-esc="doc.company_id.display_address_ext()"/></span> -->
                                     </td>
                                     <td>
                                         <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
@@ -52,7 +51,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                      Condiciones: <t t-esc="doc.note"/></div>
+                                      Condiciones: <t t-esc="doc.note"/>
                                     </td>
                                     <td>
                                       Vendedor: <t t-esc="doc.user_id.partner_id.name"/>
