@@ -14,7 +14,10 @@
                                     <td>
                                         <strong><t t-esc="doc.company_id.name"/></strong><br/>
                                         <t t-esc="doc.company_id.street"/><br/>
-                                        <t t-esc="doc.company_id.street2"/><br/>
+                                        <t t-if="doc.company_id-street2">
+                                            <t t-esc="doc.company_id.street2"/><br/>
+                                        </t>
+                                        ,<t t-esc="doc.company_id.city"/> Estado <t t-esc="doc.company_id.state_id.name"/><br/>
                                         <t t-esc="doc.company_id.phone"/><br/>
                                         <t t-esc="doc.company_id.email"/><br/>
                                         <!-- <span style="font-size: 13px; font-family: sans-serif">Dirección: <t t-esc="doc.company_id.display_address_ext()"/></span> -->
@@ -34,6 +37,22 @@
                             </table>
                         </div>
                         <div class="page">
+                          <div>
+                              <table class="table table-borderless">
+                                  <tr>
+                                      <td>
+                                        Nombre o Razon Social:<br/>
+                                        Dirección:<br/>
+                                        Telefono:<br/>
+                                      </td>
+                                      <td>
+                                        RIF:<br/>
+                                        EMISION:<br/>
+                                        VENCIMIENTO:<br/>
+                                      </td>
+                                  </tr>
+                              </table>
+                          </div>
                           <H2>Hola</H2>
                         </div>
                     </t>
