@@ -9,14 +9,14 @@
     "depends": [
         "base",
         "account",
-        # "base_accounting_kit", 
+        # "base_accounting_kit",
         'l10n_ve_dpt'
     ],
     'data': [
         # ~ 'security/ir.model.access.csv',
         'views/partner_view.xml',
         'views/company_view.xml',
-        'views/account_invoice_view.xml',
+        # 'views/account_invoice_view.xml',
         'views/account_tax_view.xml',
         'reports/invoice_change.xml'
         # ~ 'reports/fiscal_invoice.xml',
