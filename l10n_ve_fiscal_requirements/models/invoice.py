@@ -72,7 +72,23 @@ class AccountPayment(models.Model):
 
     invoice_report_header = fields.Boolean("Report Header?", default=True)
 
+    def _get_dni(self):
+        if self.partner_id.company_type == "person" and self.partner_id.cedula:
+            return "cedula"
+        elif self.partner_id.company_type == "company" and self.partner_id.rif:
+            return "rif"
+        else:
+            raise UserError(('Debe indicar una Cedula o Rif para el Cliente antes de imprimir el Reporte.'))
+
 class SaleOrderExt(models.Model):
     _inherit = 'sale.order'
 
     invoice_report_header = fields.Boolean("Report Header?", default=True)
+
+    def _get_dni(self):
+        if self.partner_id.company_type == "person" and self.partner_id.cedula:
+            return "cedula"
+        elif self.partner_id.company_type == "company" and self.partner_id.rif:
+            return "rif"
+        else:
+            raise UserError(('Debe indicar una Cedula o Rif para el Cliente antes de imprimir el Reporte.'))
