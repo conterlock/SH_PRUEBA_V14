@@ -61,8 +61,8 @@ class AccountInvoice(models.Model):
     def _check_control_number(self):
         records = self.env['account.move']
         if self.control_invoice_number:
-            invoice_exist = records.search_count([('control_invoice_number', '=', self.control_invoice_number),('id', '!=', self.id),('type','in',('out_refund','out_invoice'))])
-            if invoice_exist > 0 and self.type in ('out_refund','out_invoice'):
+            invoice_exist = records.search_count([('control_invoice_number', '=', self.control_invoice_number),('id', '!=', self.id),('move_type','in',('out_refund','out_invoice'))])
+            if invoice_exist > 0 and self.move_type in ('out_refund','out_invoice'):
                 raise ValidationError(("Ya existe una factura con este Número de Control"))
             else:
                 return True
