@@ -10,7 +10,8 @@
         "base",
         "account",
         # "base_accounting_kit",
-        'l10n_ve_dpt'
+        'l10n_ve_dpt',
+        'sale'
     ],
     'data': [
         # ~ 'security/ir.model.access.csv',
