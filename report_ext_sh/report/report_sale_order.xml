@@ -37,23 +37,56 @@
                             </table>
                         </div>
                         <div class="page">
-                          <div>
-                              <table class="table table-borderless">
-                                  <tr>
-                                      <td>
-                                        Nombre o Razon Social:<br/>
-                                        Dirección:<br/>
-                                        Telefono:<br/>
-                                      </td>
-                                      <td>
-                                        RIF:<br/>
-                                        EMISION:<br/>
-                                        VENCIMIENTO:<br/>
-                                      </td>
-                                  </tr>
-                              </table>
-                          </div>
-                          <H2>Hola</H2>
+                            <table class="table table-borderless">
+                                <tr>
+                                    <td>
+                                      Nombre o Razon Social:<br/>
+                                      Dirección:<br/>
+                                      Telefono:<br/>
+                                    </td>
+                                    <td>
+                                      RIF:<br/>
+                                      EMISION:<br/>
+                                      VENCIMIENTO:<br/>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table class="table table-sm o_main_table">
+                                <thead>
+                                    <tr>
+                                        <th name="th_description" class="text-left">Código</th>
+                                        <th name="th_quantity" class="text-right">Descripción</th>
+                                        <th name="th_priceunit" class="text-right">Marca</th>
+                                        <th name="th_priceunit" class="text-right">Cant.</th>
+                                        <th name="th_priceunit" class="text-right">Precio Unitario</th>
+                                        <th name="th_priceunit" class="text-right">Subtotal</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="sale_tbody">
+                                    <t t-foreach="doc.order_line" t-as="line">
+                                        <tr>
+                                            <td>
+                                                Código
+                                            </td>
+                                            <td>
+                                                Descripción
+                                            </td>
+                                            <td>
+                                                Marca
+                                            </td>
+                                            <td>
+                                                Cantidad
+                                            </td>
+                                            <td>
+                                                Precio
+                                            </td>
+                                            <td>
+                                                Subtotal
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
                         </div>
                     </t>
                 </t>
