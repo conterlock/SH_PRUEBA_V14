@@ -14,7 +14,7 @@
                                     <td>
                                         <strong><t t-esc="doc.company_id.name"/></strong><br/>
                                         <t t-esc="doc.company_id.street"/><br/>
-                                        <t t-if="doc.company_id-street2">
+                                        <t t-if="doc.company_id.street2">
                                             <t t-esc="doc.company_id.street2"/><br/>
                                         </t>
                                         ,<t t-esc="doc.company_id.city"/> Estado <t t-esc="doc.company_id.state_id.name"/><br/>
