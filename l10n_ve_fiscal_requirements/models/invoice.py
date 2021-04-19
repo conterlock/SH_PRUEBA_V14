@@ -72,7 +72,7 @@ class AccountPayment(models.Model):
 
     invoice_report_header = fields.Boolean("Report Header?", default=True)
 
-class SaleOrderExt(models.Model):
-    _inherit = 'sale.order'
-
-    invoice_report_header = fields.Boolean("Report Header?", default=True)
+# class SaleOrderExt(models.Model):
+#     _inherit = 'sale.order'
+#
+#     invoice_report_header = fields.Boolean("Report Header?", default=True)
