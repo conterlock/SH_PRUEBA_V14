@@ -8,7 +8,6 @@
     "depends": [
         "base",
         "account",
-        # "base_accounting_kit",
         "l10n_ve_dpt"
     ],
     'data': [

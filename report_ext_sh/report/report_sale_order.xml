@@ -40,26 +40,34 @@
                             <table class="table table-borderless">
                                 <tr>
                                     <td>
-                                      Nombre o Razon Social:<br/>
-                                      Dirección:<br/>
-                                      Telefono:<br/>
+                                      Nombre o Razon Social:<t t-esc="doc.partner_id.name"/><br/>
+                                      Dirección:<t t-esc="doc.partner_id.name"/><br/>
+                                      Telefono:<t t-esc="doc.partner_id.phone"/><br/>
                                     </td>
                                     <td>
-                                      RIF:<br/>
-                                      EMISION:<br/>
-                                      VENCIMIENTO:<br/>
+                                      RIF:<t t-esc="doc.partner_id.rif"/><br/>
+                                      EMISION:<t t-esc="doc.date_order"/><br/>
+                                      VENCIMIENTO:<t t-esc="doc.validity_date"/><br/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                      Condiciones: <t t-esc="doc.note"/></div>
+                                    </td>
+                                    <td>
+                                      Vendedor: <t t-esc="doc.user_id.partner_id.name"/>
                                     </td>
                                 </tr>
                             </table>
                             <table class="table table-sm o_main_table">
                                 <thead>
                                     <tr>
-                                        <th name="th_description" class="text-left">Código</th>
-                                        <th name="th_quantity" class="text-right">Descripción</th>
-                                        <th name="th_priceunit" class="text-right">Marca</th>
-                                        <th name="th_priceunit" class="text-right">Cant.</th>
-                                        <th name="th_priceunit" class="text-right">Precio Unitario</th>
-                                        <th name="th_priceunit" class="text-right">Subtotal</th>
+                                        <th class="text-left">Código</th>
+                                        <th class="text-right">Descripción</th>
+                                        <th class="text-right">Marca</th>
+                                        <th class="text-right">Cant.</th>
+                                        <th class="text-right">Precio Unitario</th>
+                                        <th class="text-right">Subtotal</th>
                                     </tr>
                                 </thead>
                                 <tbody class="sale_tbody">
