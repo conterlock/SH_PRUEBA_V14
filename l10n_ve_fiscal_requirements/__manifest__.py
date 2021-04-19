@@ -15,8 +15,8 @@
     'data': [
         'views/partner_view.xml',
         'views/company_view.xml',
-        # 'views/account_invoice_view.xml',
-        # 'views/account_tax_view.xml',
+        'views/account_invoice_view.xml',
+        'views/account_tax_view.xml',
         'reports/invoice_change.xml'
     ],
     'installable': True,
