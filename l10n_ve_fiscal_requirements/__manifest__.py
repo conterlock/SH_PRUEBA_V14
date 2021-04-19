@@ -9,19 +9,15 @@
     "depends": [
         "base",
         "account",
-        # "base_accounting_kit",
         'l10n_ve_dpt',
         'sale'
     ],
     'data': [
-        # ~ 'security/ir.model.access.csv',
         'views/partner_view.xml',
         'views/company_view.xml',
-        # 'views/account_invoice_view.xml',
-        # 'views/account_tax_view.xml',
+        'views/account_invoice_view.xml',
+        'views/account_tax_view.xml',
         'reports/invoice_change.xml'
-        # ~ 'reports/fiscal_invoice.xml',
-        # ~ 'reports/internal_layout_laws.xml',
     ],
     'installable': True,
 }
