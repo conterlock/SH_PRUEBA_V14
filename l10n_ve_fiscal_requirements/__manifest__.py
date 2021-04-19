@@ -6,7 +6,12 @@
     "license": "AGPL-3",
     "category": 'Localization',
 
-    "depends": ["base","account","base_accounting_kit", 'l10n_ve_dpt'],
+    "depends": [
+        "base",
+        "account",
+        # "base_accounting_kit", 
+        'l10n_ve_dpt'
+    ],
     'data': [
         # ~ 'security/ir.model.access.csv',
         'views/partner_view.xml',
